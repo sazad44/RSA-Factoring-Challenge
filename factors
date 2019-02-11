@@ -11,9 +11,22 @@ for num in numbers:
     i = 2
     flag = 0
     while i * i <= num:
+        if i > 7:
+            break
         if num % i:
-           i += 1
-           continue
+            i += 1
+            continue
         else:
-           print("{:d}={:d}*{:d}".format(num, num // i, i))
-           break
+            flag = 1
+            print("{:d}={:d}*{:d}".format(num, num // i, i))
+            break
+    if flag:
+        continue
+    i = int(math.sqrt(num))
+    while (i > (math.sqrt(num) // 2)):
+        if num % i:
+            i -= 1
+            continue
+        else:
+            print("{:d}={:d}*{:d}".format(num, num // i, i))
+            break
