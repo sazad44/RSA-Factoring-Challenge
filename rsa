@@ -10,8 +10,19 @@ with open(str(filename), 'r') as f:
 i = 2
 flag = 0
 while i * i <= num:
+    if i > 213:
+        break
     if num % i:
         i += 1
+        continue
+    else:
+        flag = 1
+        print("{:d}={:d}*{:d}".format(num, num // i, i))
+        break
+i = int(math.sqrt(num))
+while (i > (math.sqrt(num) // 2)) and flag == 0:
+    if num % i:
+        i -= 1
         continue
     else:
         print("{:d}={:d}*{:d}".format(num, num // i, i))
